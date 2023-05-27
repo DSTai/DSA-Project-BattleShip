@@ -30,10 +30,10 @@ Destroyer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs
 
 After the ships have been positioned, the game proceeds in a series of rounds. In each round, each player takes a turn to announce a target square in the opponent's grid which is to be shot at. The opponent announces whether or not the square is occupied by a ship. If it is a "hit", the "ocean" grid will be marked with a red color on the grid board. The attacking player marks the hit or miss on their own "tracking" or "target" grid. When all of the squares of a ship have been hit, the ship's owner announces the sinking of the ship. If all of a player's ships have been sunk, the game is over and their opponent wins.
 
-
+## Contributing
 ```
 
-## Contributing
+
 
 NAME                    STUDENT ID
 Trần Huỳnh Đức Tài      ITDSIU20132
