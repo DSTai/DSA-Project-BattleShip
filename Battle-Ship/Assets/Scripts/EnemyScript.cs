@@ -80,7 +80,7 @@ public class EnemyScript : MonoBehaviour
         {
             if (guessGrid[i] == 'h') hitIndex.Add(i);
         }
-        if(hitIndex.Count > 1)
+        if(hitIndex.Count > 1) // true orientation, continue hit
         {
             int diff = hitIndex[1] - hitIndex[0];
             int posNeg = Random.Range(0, 2) * 2 - 1;
@@ -95,10 +95,11 @@ public class EnemyScript : MonoBehaviour
             }
             guess = nextIndex;
         }
-        else if (hitIndex.Count == 1)
+        else if (hitIndex.Count == 1) // find true orientation
         {
             List<int> closeTiles = new List<int>();
             closeTiles.Add(1); closeTiles.Add(-1); closeTiles.Add(10); closeTiles.Add(-10);
+            // random up, down, left, right
             int index = Random.Range(0, closeTiles.Count);
             int possibleGuess = hitIndex[0] + closeTiles[index];
             bool onGrid = possibleGuess > -1 && possibleGuess < 100;
@@ -111,7 +112,7 @@ public class EnemyScript : MonoBehaviour
             guess = possibleGuess;
         }
         else
-        {
+        { // guess 
             int nextIndex = Random.Range(0, 100);
             while(guessGrid[nextIndex] != 'o') nextIndex = Random.Range(0, 100);
             nextIndex = GuessAgainCheck(nextIndex);
@@ -129,7 +130,7 @@ public class EnemyScript : MonoBehaviour
         missile.GetComponent<EnemyMissileScript>().targetTileLocation = tile.transform.position;
     }
 
-    private int GuessAgainCheck(int nextIndex)
+    private int GuessAgainCheck(int nextIndex) 
     {
         string str = "nx: " + nextIndex;
         int newGuess = nextIndex;
@@ -139,6 +140,7 @@ public class EnemyScript : MonoBehaviour
         if (!nearGuess && nextIndex - 1 > 0) nearGuess = guessGrid[nextIndex - 1] != 'o';
         if (!nearGuess && nextIndex + 10 < 100) nearGuess = guessGrid[nextIndex + 10] != 'o';
         if (!nearGuess && nextIndex - 10 > 0) nearGuess = guessGrid[nextIndex - 10] != 'o';
+        //new random guess
         if (edgeCase || nearGuess) newGuess = Random.Range(0, 100);
         while (guessGrid[newGuess] != 'o') newGuess = Random.Range(0, 100);
         Debug.Log(str + " newGuess: " + newGuess + " e:" + edgeCase + " g:" + nearGuess);

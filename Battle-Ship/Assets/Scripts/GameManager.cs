@@ -80,12 +80,12 @@ public class GameManager : MonoBehaviour
     public void TileClicked(GameObject tile)
     {
         if(setupComplete && playerTurn)
-        {
+        {// drop a missile
             Vector3 tilePos = tile.transform.position;
             tilePos.y += 15;
             playerTurn = false;
             Instantiate(missilePrefab, tilePos, missilePrefab.transform.rotation);
-        } else if (!setupComplete)
+        } else if (!setupComplete)  
         {
             PlaceShip(tile);
             shipScript.SetClickedTile(tile);
