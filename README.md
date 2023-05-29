@@ -32,9 +32,6 @@ After the ships have been positioned, the game proceeds in a series of rounds. I
 
 ## Contributing
 ```
-
-
-
 NAME                    STUDENT ID
 Trần Huỳnh Đức Tài      ITDSIU20132
 Huỳnh Thanh Thảo        ITDSIU20126
